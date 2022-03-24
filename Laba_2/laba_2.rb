@@ -7,8 +7,15 @@ class Department
     @post = post
   end
 
+  def phone=(phone)
+    if Department.check_phone(phone)
+      @phone = phone
+    else raise ArgumentError.new("Некорректный номер телефона!")
+    end
+  end
+  
   def to_s
-    "#{@name}, #{@phone}, #{@post}"
+    "Name: #{@name},\nPhone: #{@phone},\nPost: #{@post}\n"
   end
   
   #Метод добавления обязанности
@@ -44,6 +51,10 @@ class Department
     w
   end
   
+  def Department.check_phone(phone)
+    /8\-?([0-9]{3})\-?([ .-]?)([0-9]{3})\2([0-9]{3})/ =~ phone
+  end
+  
 end
 
 def ask_post(pos)
@@ -72,4 +83,8 @@ puts sotr1.text_post
 #Изменить выделенную обязанность
 sotr1.just_post(1)
 sotr1.change_post("KAKA")
+puts sotr1
+
+#Номер телефона
+sotr1.phone = "8-918-574-8544"
 puts sotr1
