@@ -334,3 +334,75 @@ when 4
 else
 	puts "Ошибка!"
 end
+
+# задание 5
+def words str # задание 5.1 
+	coun = str.count "А-я"
+	coun
+end
+
+def palindrom str # задание 5.9
+	a = str.scan(/[a-z]/)
+	a == a.reverse
+end
+
+def date str # задание 5.18 (задание 2)
+	str.scan(/([0-2]\d|3[0-1]).(0[1-9]|1[0-2]).(\d{4})/).map{|e| e.join('.')}.join(" ")
+	str.scan(/([0-2]\d|3[0-1]).(0[1-9]|1[0-2]|January|February|March|April|May|June|July|August|September|October|November|December).(\d{4})/).map{|e| e.join('.')}.join(" ")
+end
+
+puts "Введите номер желаемого задания: "
+puts "Дана строка. Необходимо найти общее количество русских символов - 1"
+puts "Дана строка. Необходимо проверить образуют ли строчные символы латиницы палиндром - 2"
+puts "Найти в тексте даты формата «день.месяц.год» - 3"
+num = gets.to_i
+
+case num
+when 1 
+	puts words "ывDDDффф"
+when 2
+	puts palindrom "pas11ASDAAhsap"
+when 3
+	puts date " 23.02.2001 23 February 2007 ddddsds"
+else
+	puts "Ошибка!"
+end
+
+
+def max  # задание 1.1 String
+	str = "2.2 1.34 1.11 -11.11"
+	real = str.scan(/\-\d+\.\d+|\d+\.\d+/).map{ |n| n.to_f }.max
+	puts real
+end
+
+def min  # задание 1.9 String
+	str = "1/2+4/3-2.5/7.8=0.0"
+	ration = str.scan(/[-+]?\d+\/\d+|[-+]?\d+\.\d+/).map{|e| e.to_f}.min
+	puts ration
+end
+
+def kol # задание 1.18 String
+	str = "12a8976b"
+	puts str.split(/\D+/).map{ |x| x.size }.max
+end
+
+puts "Введите номер желаемого задания: "
+puts "Дана строка. Необходимо найти максимальное из имеющихся в ней вещественных чисел - 1"
+puts "Дана строка. Необходимо найти минимальное из имеющихся в ней рациональных чисел - 2"
+puts "Дана строка. Необходимо найти наибольшее количество идущих подряд цифр - 3"
+num = gets.to_i
+#puts "Введите строку: "
+#str = gets.chomp
+
+case num
+when 1 
+	puts max 
+when 2
+	puts min 
+when 3
+	puts kol 
+else
+	puts "Ошибка!"
+end
+
+=end
