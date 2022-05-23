@@ -1,0 +1,3 @@
+"Department of expenses", 8-123-1248525, ("Control of the activities of expenses")
+"Department of employees", 8-123-1111111, ("Control of the activities of employees")
+"Department of energy", 8-123-4523432, ("Control of the activities of energy")
