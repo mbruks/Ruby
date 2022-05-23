@@ -3,16 +3,17 @@ require 'yaml'
 require 'yaml/Store'
 require "#{current_path}/Department_list.rb"
 class Department
-  attr_accessor :name, :phone, :post
+  attr_accessor :name, :phone, :dep, :post_list
 
-  def initialize(name, phone, *post)
+  def initialize (name, phone, posts, *dep)
     @name = name
     self.phone= phone
-    @post = post
+    @dep = dep
+    @post_list = posts
   end
 
   def to_s
-    "Name: #{@name},\nPhone: #{@phone},\nPost: #{@post}\n"
+    "Name: #{name} ; Phone: #{phone}; \nDuties:\n#{duties}\nPosts:#{post_list}\n"
   end
 
   def phone=(phone)
