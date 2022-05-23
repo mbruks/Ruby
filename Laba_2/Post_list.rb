@@ -115,4 +115,8 @@ class Post_list
     @post_list.each { |p| if p.vakantnost == 0 then vak_posts.append(p) end }
     vak_posts
   end
+  
+   def index(el)
+    @post_list.index(el)
+  end
 end
