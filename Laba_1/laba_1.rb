@@ -406,3 +406,66 @@ else
 end
 
 =end
+# задание 6 Сортировка строк
+def read_file
+	file = File.new("text-two.txt", "r")
+	str = []
+	for line in file.readlines
+		str.push(line.chomp)
+	end
+	str
+end
+
+def readlines file
+	arr = []
+	File.open(file,"r") do |f|
+		while (line = f.gets)
+			arr.append(line)
+		end
+	end
+	arr
+end
+
+# Упорядочить по длине строки
+def lenght_words(str)
+	str.sort_by {|a| a.size}
+end
+=begin
+	
+# Упорядочить по количеству слов в строке.
+def kolvo_words(str)
+	str.sort_by {|a| a.split.size}
+end
+puts "Введите номер желаемого задания: "
+puts "Упорядочить по длине строки - 1"
+puts "Упорядочить по количеству слов в строке - 2"
+num = gets.to_i
+
+case num
+when 1 
+	puts lenght_words(read_file)
+when 2
+	puts kolvo_words(read_file) 
+else
+	puts "Ошибка!"
+end
+=end
+
+# Отсортировать строки в порядке увеличения разницы между средним количеством
+# согласных и средним количеством гласных букв в строке
+def words(list_str)
+  list_str.sort{|a,b| (kol_consonant(a) - kol_vowel(a)) <=> (kol_consonant(b) - kol_vowel(b))}
+end
+
+# Среднее количество согласных
+def kol_consonant(str)
+  (str.size)/(str.count "qwrtplkjhgfdsmnbvcxz")
+end
+
+# Среднее количество гласных
+def kol_vowel(str)
+  (str.size)/(str.count "eyuioa")
+end
+
+puts("Отсортировано в порядке увеличения разницы между средним количеством согласных и средним количеством гласных букв в строке: ")
+puts words(read_file)
