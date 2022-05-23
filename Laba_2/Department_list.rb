@@ -105,6 +105,10 @@ class Department_list
     @index = 0
     @dep_list = Department_list.from_txt(file)
   end
+  
+  def sort_notes_by_name!
+    @dep_list.sort! {|a, b| a.name <=> b.name}
+  end
  end
 
 
