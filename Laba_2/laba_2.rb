@@ -182,3 +182,9 @@ post.append(Department.new("Petya", "8-785-145-5557","Waiters"))
 post.append(Department.new("Nikita", "8-785-145-5557","Staff"))
 puts "С новым объектом:", post
 write_to_yaml("yaml_text.yaml", post)
+
+puts dep.post_list
+
+puts dep
+puts "\n\nВакантные должности:\n",dep.vak_posts
+puts "\n\nВсе должности:\n",dep.post_list
