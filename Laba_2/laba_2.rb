@@ -81,6 +81,13 @@ def read_from_txt(file)
   post
 end
 
+def write_to_txt(file, post)
+  File.open(file,"w") do |f|
+    post.each do |x|
+      f.puts "\"#{x.name}\", #{x.phone}, (#{x.post_in_file})"
+    end
+  end
+end
 
 def ask_post(pos)
   puts "Какую обязанность выбрать?"
