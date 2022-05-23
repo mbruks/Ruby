@@ -91,6 +91,25 @@ class Post_list
     end
   end
   
+  def Post_list.deserialize_yaml(file)
+    arr = Post.from_yaml(file)
+    p = Post_list.new
+    arr.each { |i| p.add_note(i) }
+    p
+  end
+
+  def to_yaml
+    s="--- !ruby/object:Post_list\npost_list:\n"
+    @post_list.each do |p|
+      a = p.to_yaml[2..p.to_yaml.length-1]
+      l = ""
+      a.each_line { |line| l += "  " + line }
+      l[0..1] = ""
+      s += l
+      end
+    s + "index: 0"
+  end
+  
   def find_vak_posts
     vak_posts = Array.new
     @post_list.each { |p| if p.vakantnost == 0 then vak_posts.append(p) end }
