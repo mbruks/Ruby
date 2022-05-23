@@ -95,6 +95,17 @@ def write_to_yaml(file, post)
   end
 end
 
+def read_from_yaml(file)
+  docum = YAML::Docum.new file
+  post = ""
+  File.open(file,"r") do |f|
+    while (line = f.gets)
+      post+= line
+    end
+  end
+  docum.load(post)
+end
+
 def ask_post(pos)
   puts "Какую обязанность выбрать?"
   puts pos.print_post
