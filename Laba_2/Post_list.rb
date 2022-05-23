@@ -90,4 +90,10 @@ class Post_list
       f.puts YAML.dump(post)
     end
   end
+  
+  def find_vak_posts
+    vak_posts = Array.new
+    @post_list.each { |p| if p.vakantnost == 0 then vak_posts.append(p) end }
+    vak_posts
+  end
 end
