@@ -121,4 +121,13 @@ puts sotr1
 sotr1.phone = "8-918-574-8544"
 puts sotr1
 
+
+
+sotr1 = Department.new("Maria", "8-718-433-8558", "Customer")
+sotr2 = Department.new("Astra", "8-918-433-8558", "Baker")
 print_post(read_from_txt("Department.txt"))
+
+post = read_from_txt("Department_Post.txt")
+puts ("Из файла")
+print_post(post)
+post.append(Department.new("Petya", "8-785-145-5557","Waiters"))
