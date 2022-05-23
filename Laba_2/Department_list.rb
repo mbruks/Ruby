@@ -95,6 +95,16 @@ class Department_list
       f.puts YAML.dump(deps)
     end
   end
+  
+   def Department_list.deserialize_yaml(file)
+    @index = 0
+    @dep_list = Department_list.from_yaml(file)
+  end
+
+  def Department_list.deserialize_txt(file)
+    @index = 0
+    @dep_list = Department_list.from_txt(file)
+  end
  end
 
 
@@ -106,3 +116,7 @@ a = Department_list.from_txt("Department.txt")
 puts a
 Department_list.to_yaml("yaml_text.yaml",a)
 end
+c=Department_list.deserialize_yaml "yaml_text.yaml"
+puts "c", c
+d=Department_list.deserialize_txt "Department.txt"
+puts "d", d
