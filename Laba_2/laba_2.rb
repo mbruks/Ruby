@@ -3,19 +3,19 @@ class Department
 
   def initialize(name, phone, *post)
     @name = name
-    @phone = phone
+    self.phone= phone
     @post = post
   end
 
+  def to_s
+    "Name: #{@name},\nPhone: #{@phone},\nPost: #{@post}\n"
+  end
+
   def phone=(phone)
-    if Department.check_phone(phone)
+    if Department.check_phone?(phone)
       @phone = phone
     else raise ArgumentError.new("Некорректный номер телефона!")
     end
-  end
-  
-  def to_s
-    "Name: #{@name},\nPhone: #{@phone},\nPost: #{@post}\n"
   end
   
   #Метод добавления обязанности
