@@ -1,0 +1,21 @@
+---
+- !ruby/object:Department
+  name: Mary
+  phone: 8-918-254-5425
+  post:
+  - Customer
+- !ruby/object:Department
+  name: Astra
+  phone: 8-918-433-5545
+  post:
+  - Baker
+- !ruby/object:Department
+  name: Anton
+  phone: 8-785-145-5557
+  post:
+  - Waiters
+- !ruby/object:Department
+  name: Fedya
+  phone: 8-785-145-5557
+  post:
+  - Waiters
