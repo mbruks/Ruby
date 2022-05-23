@@ -37,5 +37,29 @@ class Post
   def to_s
     "Отдел: #{otdel};\nНазвание: #{name};\nОклад: #{oklad};\nДолжность: #{Post.word_vak}"
   end
+  def to_yaml
+      YAML.dump(self)
+  end
+
+  def Post.from_yaml(file)
+    store = YAML::Store.new file
+    posts = ""
+    File.open(file,"r") do |f|
+      while (line = f.gets)
+        posts+= line
+      end
+    end
+    store.load(posts)
+  end
+
+
+end
+
+
+
+def yaml_to_file(file,yaml)
+  File.open(file,"w") do |f|
+    f.puts yaml
+  end
 
 end
