@@ -273,3 +273,64 @@ when 4
 else
 	puts "Ошибка!"
 end
+
+# задание 4
+def sdvig_two(list)
+	return list.rotate(-2)
+end
+
+def sdvig_one(list)
+	return list.rotate(-1)
+end
+
+def chetn(list)
+	return list.count{ |list| list.even? }
+end
+
+def min(list)
+	return list.count(list.min)
+end
+
+puts "Выберите метод: "
+puts "Циклический сдвиг элементов массива вправо на две позиции - 1"
+puts "Циклический сдвиг элементов массива вправо на одну позицию - 2"
+puts "Найти количество четных элементов - 3"
+puts "Найти количество минимальных элементов - 4"
+
+num = gets.to_i
+puts "Выберите откуда вы хотите считать данные?"
+puts "С клавиатуры - 1"
+puts "С файла - 2"
+from_where=gets.chop.to_i
+arr = Array.new
+if from_where == 2
+	puts "Введите путь файла: " #D:\Sublime Text 3\Projects\text.txt
+	file=gets.chop
+	File.open(file, "r") do |f|
+		while (line = f.gets)
+			arr.append(line.to_i)
+		end
+	end
+else 
+	if from_where == 1
+		puts "Введите массив: "
+		el = gets
+		until el == "\n"
+			arr.append(el.to_i)
+			el = gets
+		end
+	end
+end
+
+case num
+when 1 
+	puts sdvig_two arr
+when 2
+	puts sdvig_one arr
+when 3
+	puts chetn arr
+when 4
+	puts min arr
+else
+	puts "Ошибка!"
+end
