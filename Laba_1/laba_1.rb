@@ -101,3 +101,31 @@ def min_digit(num)
 	end
 	min
 end
+
+	
+# задание 2.3.1
+def prost_digit(num) 
+	k=0 				
+	if num > 1
+		(1 .. num).each do |n|
+			if num % n == 0 
+				k += 1
+			end
+		end
+		if k == 2
+			return true
+		else 
+			return false
+		end
+	end
+end
+
+def sum_delit(num) 
+	sum2 = 0
+	(1 .. num).each do |i|
+		if (num % i == 0 && prost_digit(i) == true)
+			sum2 += i
+		end
+	end
+	sum2
+end
