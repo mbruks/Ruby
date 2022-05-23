@@ -57,6 +57,9 @@ class Department
   
 end
 
+def print_post(post)
+  post.each { |x| puts(x) }
+end
 
 def read_from_txt(file)
   reg_name = /^"[\w| |,|.]+/
@@ -110,3 +113,5 @@ puts sotr1
 #Номер телефона
 sotr1.phone = "8-918-574-8544"
 puts sotr1
+
+print_post(read_from_txt("Department.txt"))
