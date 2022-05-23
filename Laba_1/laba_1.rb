@@ -193,3 +193,41 @@ when 7
 else
 	puts "Неверный метод!"
 end
+
+	
+# задание 3.1
+def min_list(list)
+	min = list[0]
+		list.each do |a| 
+			if min > a
+				min = a
+			end
+		end
+		return min
+end
+
+def max_list(list)
+	max = list[0]
+		list.each do |a| 
+			if max < a
+				max = a
+			end
+		end	
+		return max	
+end
+
+def sum_list(list)
+	sum = 0
+		list.each do |a| 
+			sum += a 
+		end
+		return sum
+end
+
+def proiz_list(list)
+	proiz = 1
+		list.each do |a| 
+			proiz *= a 
+		end
+		return proiz
+end
