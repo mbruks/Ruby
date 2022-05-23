@@ -62,3 +62,42 @@ def sum_digit(num)
 	end
 	sum
 end
+
+	
+# задание 2.2
+def multip_digit(num) 
+	multip = 1 
+	while (num > 0 ) 
+		multip *= num%10
+		num = num/10
+	end
+	multip
+end
+
+def max_digit(num)
+	max = 0
+	while (num > 0 ) 
+		c = num%10
+		if max < c then 
+			max = c
+			num = num/10
+		else
+			num = num/10
+		end
+	end
+	max
+end
+
+def min_digit(num)
+	min = 9
+	while (num > 0 ) 
+		c = num%10
+		if min >= c then 
+			min = c
+			num = num/10
+		else
+			num = num/10
+		end
+	end
+	min
+end
