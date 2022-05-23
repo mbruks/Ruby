@@ -150,3 +150,46 @@ def sum_digit(num) #1
 	end
 	sum
 end
+
+# задание 2.3.3
+def proiz_sum_digit(num) 
+	pr = 1
+	(1 .. num).each do |i| 
+		if (num % i == 0 && (sum_digit(i) < sum_digit(num)))
+			pr = pr * i 
+		end	
+	end
+	pr
+end
+
+num = ARGV[0].to_i
+puts "Найти сумму цифр числа - 1" #3
+puts "Найти произведение цифр числа - 2"
+puts "Найти max цифру числа - 3"
+puts "Найти min цифру числа - 4"
+puts "Найти сумму простых делителей числа - 5"
+puts "Найти количество нечетных цифр числа, больших 3 - 6"
+puts "Найти произведение таких делителей числа, сумма цифр которых меньше, чем сумма цифр исходного числа - 7"
+puts "Введите номер метода который вы хотите использовать: " 
+
+meth = ARGV[1].to_i
+puts "Результат: " 
+
+case meth
+when 1 
+	puts sum_digit num 
+when 2
+	puts multip_digit num
+when 3
+	puts max_digit num 
+when 4
+	puts min_digit num
+when 5
+	puts sum_delit num
+when 6
+	puts nechet_digit num
+when 7
+	puts proiz_sum_digit num
+else
+	puts "Неверный метод!"
+end
