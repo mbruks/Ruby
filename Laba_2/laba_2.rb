@@ -148,3 +148,8 @@ post = read_from_txt("Department_Post.txt")
 puts ("Из файла")
 print_post(post)
 post.append(Department.new("Petya", "8-785-145-5557","Waiters"))
+
+#Работа с YAML файлом
+post.append(Department.new("Nikita", "8-785-145-5557","Staff"))
+puts "С новым объектом:", post
+write_to_yaml("yaml_text.yaml", post)
