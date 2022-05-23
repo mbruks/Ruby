@@ -147,6 +147,11 @@ def write_to_yaml(file, post)
     t.each_line { |line| l+="  "+line }
     a + l
   end
+  
+   def count_vak
+    @post_list.find_vak_posts.length
+  end
+  
 end
 
 def read_from_yaml(file)
