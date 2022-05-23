@@ -109,6 +109,10 @@ class Department_list
   def sort_notes_by_name!
     @dep_list.sort! {|a, b| a.name <=> b.name}
   end
+  
+  def sort_by_vak_count!
+    @dep_list.sort! { |a, b| b.count_vak <=> a.count_vak }
+  end
  end
 
 
