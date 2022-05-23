@@ -152,6 +152,16 @@ def write_to_yaml(file, post)
     @post_list.find_vak_posts.length
   end
   
+  def list_post
+    s = ""
+    @post_list.each { |p| s += @post_list.index(p).to_s + ". " + p.name + "; должность: " + p.word_vak + "\n" }
+    s
+  end
+
+  def to_s_big
+    "Name: #{name}\nPhone: #{phone}; \nDuties:\n#{duties}Posts:\n#{post_list}\n"
+  end
+  
 end
 
 def read_from_yaml(file)
