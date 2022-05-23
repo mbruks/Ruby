@@ -43,3 +43,12 @@ unless language != 2 then
 else 
 	puts "Скоро будет Ruby!!"
 end
+
+	
+# задание 1.4
+puts "Введите команду языка Ruby:" #4
+rb = gets.chomp
+puts eval(rb)
+puts "Введите команду ОС:"
+oc = gets.chomp
+puts(`#{oc}`)
