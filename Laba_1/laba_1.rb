@@ -231,3 +231,45 @@ def proiz_list(list)
 		end
 		return proiz
 end
+
+# задание 3.2
+puts "Выберите метод: "
+puts "Минимальный элемент списка - 1"
+puts "Максимальный элемент списка - 2"
+puts "Сумма элементов списка - 3"
+puts "Произведение элементов списка - 4"
+num = gets.to_i
+puts "Выберите откуда вы хотите считать данные?"
+puts "С клавиатуры - 1"
+puts "С файла - 2"
+from_where=gets.chop.to_i
+arr = Array.new
+if from_where == 2
+	file=gets.chop
+	File.open(file, "r") do |f|
+		while (line = f.gets)
+			arr.append(line.to_i)
+		end
+	end
+else 
+	if from_where == 1
+		el = gets
+		until el == "\n"
+			arr.append(el.to_i)
+			el = gets
+		end
+	end
+end
+
+case num
+when 1 
+	puts min_list arr
+when 2
+	puts max_list arr
+when 3
+	puts sum_list arr
+when 4
+	puts proiz_list arr
+else
+	puts "Ошибка!"
+end
