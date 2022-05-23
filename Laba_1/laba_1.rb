@@ -52,3 +52,13 @@ puts eval(rb)
 puts "Введите команду ОС:"
 oc = gets.chomp
 puts(`#{oc}`)
+
+# задание 2.1
+def sum_digit(num) 
+	sum = 0 
+	while (num > 0 ) 
+		sum += num%10
+		num = num/10
+	end
+	sum
+end
