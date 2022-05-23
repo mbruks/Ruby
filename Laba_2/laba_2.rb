@@ -89,6 +89,12 @@ def write_to_txt(file, post)
   end
 end
 
+def write_to_yaml(file, post)
+  File.open(file,"w") do |f|
+    f.puts YAML.dump(post)
+  end
+end
+
 def ask_post(pos)
   puts "Какую обязанность выбрать?"
   puts pos.print_post
