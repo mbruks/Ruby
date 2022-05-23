@@ -122,6 +122,31 @@ def write_to_yaml(file, post)
   File.open(file,"w") do |f|
     f.puts YAML.dump(post)
   end
+  
+  def Department.from_yaml(file)
+    store = YAML::Store.new file
+    deps = ""
+    File.open(file,"r") do |f|
+      while (line = f.gets)
+        deps+= line
+      end
+    end
+    store.load(deps)
+  end
+
+  def Department.deserialize_yaml(file)
+    Department.from_yaml(file)
+  end
+
+  def to_yaml
+    d = Department.new(@name,@phone,@duties)
+    a = YAML.dump(d)
+    a[-15..-2]=""
+    t=@post_list.to_yaml[38..@post_list.to_yaml.length-1]
+    l=""
+    t.each_line { |line| l+="  "+line }
+    a + l
+  end
 end
 
 def read_from_yaml(file)
