@@ -5,15 +5,16 @@ require "#{current_path}/Department_list.rb"
 class Department
   attr_accessor :name, :phone, :dep, :post_list
 
-  def initialize (name, phone, posts, *dep)
+  def initialize (name, phone, posts = Post_list.new(), dep)
     @name = name
     self.phone= phone
     @dep = dep
     @post_list = posts
+    @index_dep = 0
   end
 
   def to_s
-    "Name: #{name} ; Phone: #{phone}; \nDuties:\n#{duties}\nPosts:#{post_list}\n"
+    "Name: #{name}\nPhone: #{phone}; \nDep:\n#{dep}\nPosts:#{post_list}\n"
   end
 
   def phone=(phone)
@@ -60,6 +61,26 @@ class Department
     /8\-?([0-9]{3})\-?([ .-]?)([0-9]{3})\2([0-9]{3})/ =~ phone
   end
   
+   def set_post(val)
+    @post_list.add_note(val)
+  end
+
+  def choose_post(index)
+    @post_list.choose_note(index)
+  end
+
+  def delete_post
+    @post_list.delete_note
+  end
+
+  def get_post
+    @post_list.get_note
+  end
+
+  def update_post(new)
+    @post_list.change_note(new)
+  end
+
 end
 
 def print_post(post)
