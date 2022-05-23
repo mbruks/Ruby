@@ -1,3 +1,7 @@
+current_path = File.dirname(__FILE__)
+require 'yaml'
+require 'yaml/Store'
+require "#{current_path}/Department_list.rb"
 class Department
   attr_accessor :name, :phone, :post
 
