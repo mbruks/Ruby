@@ -129,3 +129,24 @@ def sum_delit(num)
 	end
 	sum2
 end
+
+# задание 2.3.2
+def nechet_digit(num)
+	kol = 0 
+	while num > 0 
+		if ((num%10)%2!=0 && (num%10)>3)
+			kol = kol + 1
+		end
+		num = num/10
+	end
+	kol
+end
+
+def sum_digit(num) #1
+	sum = 0 
+	while (num > 0 ) 
+		sum += num%10
+		num = num/10
+	end
+	sum
+end
